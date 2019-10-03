@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t smiska/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run smiska/docker-react npm run test -- -- coverage
